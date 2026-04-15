@@ -20,6 +20,7 @@
       font-size: 18px;
       padding: 0 20px;
       min-height: 60px;
+      white-space: pre-wrap;
     }
 
     img {
@@ -79,23 +80,30 @@
   <div class="balloon" style="left:80%; background:#06d6a0;"></div>
 
   <script>
+    // 🎵 เริ่มเพลง + เริ่มข้อความ
     document.getElementById("startScreen").addEventListener("click", function() {
       document.getElementById("bgm").play();
       this.style.display = "none";
+      typing(); // เริ่มพิมพ์หลังจากกด
     });
 
+    // 💌 ข้อความ
     const message = "ขอให้เด็กดื้อมีความสุขมากๆนะ ❤️ อยู่ด้วยกันไปนานๆเลยนะ 👫 ไอ้แก่คนนี้รักเด็กดื้อคนนี้ที่สุดเลยย 💖";
+
     let i = 0;
+    let timer;
 
     function typing() {
+      const el = document.getElementById("text");
+
       if (i < message.length) {
-        document.getElementById("text").innerHTML += message.charAt(i);
+        el.textContent = message.substring(0, i + 1);
         i++;
-        setTimeout(typing, 60);
+        timer = setTimeout(typing, 40);
+      } else {
+        clearTimeout(timer);
       }
     }
-
-    typing();
   </script>
 
 </body>
