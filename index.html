@@ -31,24 +31,6 @@
       margin-top: 20px;
     }
 
-    /* 👇 กล่องแตะ */
-    #tapBox {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.6);
-      padding: 10px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%,100% { opacity: 0.4; }
-      50% { opacity: 1; }
-    }
-
     .balloon {
       position: fixed;
       bottom: -100px;
@@ -65,7 +47,7 @@
   </style>
 </head>
 
-<body onclick="playSound()">
+<body>
 
   <h1>🎂 Happy Birthday เด็กดื้อ ❤️</h1>
 
@@ -74,16 +56,10 @@
   <!-- 📸 รูป -->
   <img src="https://lh3.googleusercontent.com/d/1dFSn7LB34lqxgvJ_aOqlx63cHnQOQxC5">
 
-  <!-- 🎵 เพลง -->
-  <iframe id="yt"
-    width="90%" height="250"
-    src="https://www.youtube.com/embed/EBJf0slhj5A?autoplay=1&mute=1&playsinline=1"
-    frameborder="0"
-    allow="autoplay">
-  </iframe>
-
-  <!-- 👇 กล่องแตะ -->
-  <div id="tapBox">👆 แตะหน้าจอ 1 ครั้งและกดเล่น youtube</div>
+  <!-- 🎵 เพลง (เล่นทันที) -->
+  <audio autoplay loop>
+    <source src="https://drive.google.com/uc?export=download&id=1_hT1iDiuLeEVxw-NTtDhelATUH8qZvPZ" type="audio/mpeg">
+  </audio>
 
   <!-- 🎈 ลูกโป่ง -->
   <div class="balloon" style="left:10%; background:#ff4d6d;"></div>
@@ -93,21 +69,7 @@
   <div class="balloon" style="left:90%; background:#ef476f; animation-delay:3s;"></div>
 
   <script>
-    let played = false;
-
-    function playSound() {
-      if (!played) {
-        document.getElementById("yt").src =
-        "https://www.youtube.com/embed/EBJf0slhj5A?autoplay=1";
-
-        // ซ่อนข้อความแตะ
-        document.getElementById("tapBox").style.display = "none";
-
-        played = true;
-      }
-    }
-
-    const message = "ขอให้เด็กดื้อมีความสุขมากๆนะ ❤️ อยู่ด้วยกันไปนานๆเลยนะ รักเด็กดื้อที่สุดด 💖";
+    const message = "ขอให้เด็กดื้อมีความสุขมากๆนะ ❤️ อยู่ด้วยกันไปนานๆเลยนะ 💖";
     let i = 0;
 
     function typing() {
