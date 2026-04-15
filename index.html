@@ -29,7 +29,6 @@
       margin-top: 20px;
     }
 
-    /* 🎈 ลูกโป่ง */
     .balloon {
       position: fixed;
       bottom: -100px;
@@ -44,7 +43,6 @@
       100% { transform: translateY(-110vh); }
     }
 
-    /* 👇 หน้าจอเริ่ม */
     #startScreen {
       position: fixed;
       top:0; left:0;
@@ -56,46 +54,36 @@
       flex-direction:column;
       font-size:22px;
       z-index:999;
-      text-align:center;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- 👇 หน้าแตะเพื่อเริ่ม -->
   <div id="startScreen">
-    <div>🎁 มีอะไรจะให้...</div>
-    <div style="margin-top:10px;">👆 แตะหน้าจอเพื่อเปิด ❤️</div>
+    🎁 แตะหน้าจอเพื่อเริ่ม ❤️
   </div>
 
   <h1>🎂 Happy Birthday เด็กดื้อ ❤️</h1>
 
   <p id="text"></p>
 
-  <!-- 📸 รูป -->
   <img src="https://lh3.googleusercontent.com/d/1dFSn7LB34lqxgvJ_aOqlx63cHnQOQxC5">
 
-  <!-- 🎵 เพลง -->
   <audio id="bgm" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- 🎈 ลูกโป่ง -->
   <div class="balloon" style="left:10%; background:#ff4d6d;"></div>
-  <div class="balloon" style="left:30%; background:#ffd166; animation-delay:2s;"></div>
-  <div class="balloon" style="left:50%; background:#06d6a0; animation-delay:4s;"></div>
-  <div class="balloon" style="left:70%; background:#118ab2; animation-delay:1s;"></div>
-  <div class="balloon" style="left:90%; background:#ef476f; animation-delay:3s;"></div>
+  <div class="balloon" style="left:50%; background:#ffd166;"></div>
+  <div class="balloon" style="left:80%; background:#06d6a0;"></div>
 
   <script>
-    // 🎵 เล่นเพลงเมื่อแตะ
     document.getElementById("startScreen").addEventListener("click", function() {
       document.getElementById("bgm").play();
       this.style.display = "none";
     });
 
-    // ✨ พิมพ์ข้อความ
     const message = "ขอให้เด็กดื้อมีความสุขมากๆนะ ❤️ อยู่ด้วยกันไปนานๆเลยนะ 💖";
     let i = 0;
 
