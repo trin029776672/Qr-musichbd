@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday เด็กดื้อ ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      text-align: center;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      margin-top: 30px;
+    }
+
+    #text {
+      font-size: 18px;
+      padding: 0 20px;
+      min-height: 60px;
+    }
+
+    img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    /* 👇 กล่องแตะ */
+    #tapBox {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      width: 40px;
+      height: 50px;
+      border-radius: 50%;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-110vh); }
+    }
+  </style>
+</head>
+
+<body onclick="playSound()">
+
+  <h1>🎂 Happy Birthday เด็กดื้อ ❤️</h1>
+
+  <p id="text"></p>
+
+  <!-- 📸 รูป -->
+  <img src="https://lh3.googleusercontent.com/d/1dFSn7LB34lqxgvJ_aOqlx63cHnQOQxC5">
+
+  <!-- 🎵 เพลง -->
+  <iframe id="yt"
+    width="90%" height="250"
+    src="https://www.youtube.com/embed/EBJf0slhj5A?autoplay=1&mute=1&playsinline=1"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
+
+  <!-- 👇 กล่องแตะ -->
+  <div id="tapBox">👆 แตะหน้าจอเพื่อเปิดเสียง</div>
+
+  <!-- 🎈 ลูกโป่ง -->
+  <div class="balloon" style="left:10%; background:#ff4d6d;"></div>
+  <div class="balloon" style="left:30%; background:#ffd166; animation-delay:2s;"></div>
+  <div class="balloon" style="left:50%; background:#06d6a0; animation-delay:4s;"></div>
+  <div class="balloon" style="left:70%; background:#118ab2; animation-delay:1s;"></div>
+  <div class="balloon" style="left:90%; background:#ef476f; animation-delay:3s;"></div>
+
+  <script>
+    let played = false;
+
+    function playSound() {
+      if (!played) {
+        document.getElementById("yt").src =
+        "https://www.youtube.com/embed/EBJf0slhj5A?autoplay=1";
+
+        // ซ่อนข้อความแตะ
+        document.getElementById("tapBox").style.display = "none";
+
+        played = true;
+      }
+    }
+
+    const message = "ขอให้เด็กดื้อมีความสุขมากๆนะ ❤️ อยู่ด้วยกันไปนานๆเลยนะ 💖";
+    let i = 0;
+
+    function typing() {
+      if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typing, 60);
+      }
+    }
+
+    typing();
+  </script>
+
+</body>
+</html>
